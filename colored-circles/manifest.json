@@ -1,0 +1,9 @@
+{
+	"modules": {
+		"*": "./mod"
+	},
+	"resources": {
+		"*-mask": "./circle"
+	}
+}
+

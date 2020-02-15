@@ -1,0 +1,50 @@
+{
+	"include": [
+		"$(MODDABLE)/examples/manifest_base.json",
+		"$(MODDABLE)/examples/manifest_net.json",
+		"$(MODULES)/network/mdns/manifest.json",
+		"$(MODDABLE)/examples/manifest_piu.json",
+		"$(MODDABLE)/modules/input/expanding-keyboard/vertical/manifest.json",
+		"$(MODULES)/pins/digital/manifest.json",
+	],
+	"creation": {
+		"static": 50000,
+		"stack": 485,
+		"keys": {
+			"available": 96
+		}
+	},
+	"defines": {
+		"XS_MODS": 1
+	},
+	"modules": {
+		"*": [
+			"./main",
+			"../loadmod/*",
+			"$(MODULES)/network/http/*",
+			"$(MODULES)/network/websocket/*",
+			"$(MODULES)/data/base64/*",
+			"$(MODULES)/data/logical/*",
+			"$(MODULES)/crypt/digest/*",
+			"$(MODULES)/crypt/digest/kcl/*",
+		]
+	},
+	"preload": [
+		"http",
+		"websocket",
+		"base64",
+		"digest",
+		"logical",
+	],
+	"resources": {
+		"*-alpha": [
+			"./OpenSans-Regular-24",
+			"./OpenSans-Regular-16"
+		]
+	},
+	"strip": [
+		"RegExp",
+		"Proxy",
+		"eval"	
+	]
+}
